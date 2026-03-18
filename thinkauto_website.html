@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThinkAuto Labs — Less Paperwork. More Business.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#08213d;
+  --navy2:#0d3b6e;
+  --blue:#1565c0;
+  --gold:#f0c040;
+  --gold2:#c9952a;
+  --cyan:#4fc3f7;
+  --white:#ffffff;
+  --muted:#94a3b8;
+  --surface:#0f2d50;
+  --surface2:#112840;
+  --border:rgba(79,195,247,0.15);
+  --text:#e2e8f0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(8,33,61,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:8px;object-fit:contain}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white)}
+.nav-logo-text span{color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;font-family:'DM Mono',monospace;letter-spacing:.5px}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;font-family:'DM Mono',monospace}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%, rgba(21,101,192,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(240,192,64,0.08) 0%, transparent 50%)}
+.hero-grid{position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(var(--cyan) 1px, transparent 1px), linear-gradient(90deg, var(--cyan) 1px, transparent 1px);background-size:60px 60px}
+.hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(240,192,64,0.1);border:1px solid rgba(240,192,64,0.3);color:var(--gold);font-size:11px;font-weight:500;padding:6px 16px;border-radius:20px;margin-bottom:2rem;font-family:'DM Mono',monospace;letter-spacing:1px}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,4.5rem);font-weight:900;line-height:1.08;margin-bottom:1.5rem;color:var(--white)}
+.hero h1 .gold{color:var(--gold)}
+.hero h1 .cyan{color:var(--cyan)}
+.hero-sub{font-size:18px;color:var(--muted);max-width:560px;line-height:1.8;margin-bottom:2.5rem;font-weight:300}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,192,64,0.25)}
+button.btn-primary, button.btn-outline{cursor:pointer;font-family:inherit;border:none}
+.btn-outline{border:1px solid var(--border);color:var(--cyan);padding:14px 32px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-outline:hover{border-color:var(--cyan);background:rgba(79,195,247,0.05);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border)}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--white)}
+.stat-num span{color:var(--gold)}
+.stat-label{font-size:12px;color:var(--muted);margin-top:2px;font-family:'DM Mono',monospace;letter-spacing:.5px}
+
+/* SECTIONS */
+section{padding:100px 5%}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-label{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;color:var(--white);margin-bottom:1rem;line-height:1.2}
+.sec-desc{color:var(--muted);font-size:16px;max-width:580px;line-height:1.8}
+
+/* SERVICES */
+#services{background:var(--surface2)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:3rem}
+.service-card{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
+.service-card:hover{border-color:rgba(240,192,64,0.3);transform:translateY(-4px);background:rgba(255,255,255,0.05)}
+.service-card:hover::before{opacity:1}
+.service-icon{font-size:2rem;margin-bottom:1rem}
+.service-card h3{font-size:17px;font-weight:600;color:var(--white);margin-bottom:.6rem}
+.service-card p{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* PRODUCTS */
+#products{background:var(--navy)}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(480px,1fr));gap:2rem;margin-top:3rem}
+@media(max-width:1060px){.products-grid{grid-template-columns:1fr}}
+.product-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2.5rem;position:relative;overflow:hidden;transition:all .3s}
+.product-card:hover{border-color:rgba(240,192,64,0.25);transform:translateY(-4px)}
+.product-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--cyan));opacity:0.6}
+.product-tag{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;font-family:'DM Mono',monospace;letter-spacing:1px;margin-bottom:1.5rem}
+.tag-live{background:rgba(34,197,94,0.15);color:#22c55e;border:1px solid rgba(34,197,94,0.3)}
+.tag-live::before{content:'';width:5px;height:5px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
+.tag-soon{background:rgba(240,192,64,0.12);color:var(--gold);border:1px solid rgba(240,192,64,0.3)}
+.product-card h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--white);margin-bottom:.8rem}
+.product-card>p{font-size:14.5px;color:var(--muted);line-height:1.75;margin-bottom:1.5rem}
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:1.5rem}
+.feature-item{display:flex;align-items:center;gap:.5rem;font-size:13px;color:var(--text)}
+.feature-item::before{content:'✓';color:var(--gold);font-weight:700;font-size:11px}
+.tech-pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.tech-pill{background:rgba(79,195,247,0.08);border:1px solid rgba(79,195,247,0.2);color:var(--cyan);padding:4px 10px;border-radius:5px;font-size:11px;font-family:'DM Mono',monospace}
+.client-note{background:rgba(255,255,255,0.03);border-left:3px solid var(--gold);padding:.75rem 1rem;border-radius:0 8px 8px 0;font-size:13px;color:var(--muted)}
+
+/* WHY US */
+#whyus{background:var(--surface2)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:3rem}
+.why-card{text-align:center;padding:2rem 1.5rem;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:16px;transition:all .3s}
+.why-card:hover{border-color:rgba(240,192,64,0.3);background:rgba(240,192,64,0.03);transform:translateY(-4px)}
+.why-icon{font-size:2.2rem;margin-bottom:1rem}
+.why-card h3{font-size:16px;font-weight:600;color:var(--white);margin-bottom:.5rem}
+.why-card p{font-size:13.5px;color:var(--muted);line-height:1.65}
+
+/* CONTACT */
+#contact{background:var(--navy);position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(21,101,192,0.12) 0%,transparent 70%);pointer-events:none}
+.contact-inner{max-width:700px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.contact-inner .sec-title{margin-bottom:.75rem}
+.contact-inner .sec-desc{margin:0 auto 3rem;max-width:500px}
+.contact-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2.5rem}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;text-decoration:none;transition:all .3s;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.contact-card:hover{border-color:rgba(240,192,64,0.4);transform:translateY(-3px);background:rgba(240,192,64,0.04)}
+.contact-card-icon{font-size:1.8rem}
+.contact-card-label{font-size:11px;color:var(--muted);font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase}
+.contact-card-value{font-size:14px;color:var(--white);font-weight:500}
+.contact-tagline{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--muted);font-style:italic}
+
+/* FOOTER */
+footer{background:var(--surface2);border-top:1px solid var(--border);padding:2rem 5%;text-align:center}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--white)}
+.footer-logo span{color:var(--gold)}
+.footer-copy{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:12px;color:var(--muted);text-decoration:none;transition:color .2s;font-family:'DM Mono',monospace}
+.footer-links a:hover{color:var(--gold)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:all .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE */
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .contact-cards{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+  .products-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div style="width:36px;height:36px;background:#0d3b6e;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px">⚙️</div>
+      <span class="nav-logo-text">Think<span>Auto</span>Labs</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="javascript:void(0)" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a></li>
+      <li><a href="javascript:void(0)" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Products</a></li>
+      <li><a href="javascript:void(0)" onclick="document.getElementById('whyus').scrollIntoView({behavior:'smooth'})">Why Us</a></li>
+      <li><a href="javascript:void(0)" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact</a></li>
+    </ul>
+    <a href="https://wa.me/916380008943?text=Hi ThinkAuto Labs, I'm interested in your software" class="nav-cta" target="_blank">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner fade-up visible">
+    <div class="hero-tag">🚀 Now serving businesses across Tamil Nadu</div>
+    <h1>Less <span class="gold">Paperwork.</span><br>More <span class="cyan">Business.</span></h1>
+    <p class="hero-sub">We build simple, affordable software that replaces manual notebooks and WhatsApp chaos — so you can focus on growing your business.</p>
+    <div class="hero-btns">
+      <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})" class="btn-primary">See Our Products →</button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" class="btn-outline">📞 Talk to Us</button>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num"><span>1</span>+</div>
+        <div class="stat-label">Products Live</div>
+      </div>
+      <div>
+        <div class="stat-num"><span>₹999</span></div>
+        <div class="stat-label">Starting Price/Month</div>
+      </div>
+      <div>
+        <div class="stat-num"><span>Palani</span></div>
+        <div class="stat-label">Based in Tamil Nadu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">What We Do</div>
+      <h2 class="sec-title">We automate your<br>business workflows</h2>
+      <p class="sec-desc">From biometric integrations to cloud-deployed SaaS — we build solutions that actually work for Tamil Nadu businesses.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">⚙️</div>
+        <h3>Business Automation</h3>
+        <p>Replace manual notebooks and WhatsApp chaos with smart digital workflows tailored to your business.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🖥️</div>
+        <h3>SaaS Products</h3>
+        <p>Affordable subscription software built for Tamil Nadu SMEs — no big upfront costs, just monthly plans.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">🔗</div>
+        <h3>Device & API Integration</h3>
+        <p>Connect biometric devices, payment gateways, and third-party services to your existing systems.</p>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-icon">📊</div>
+        <h3>Dashboards & Reports</h3>
+        <p>Real-time data visibility — one screen gives you daily counts, revenue, and automated Excel exports.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">Our Products</div>
+      <h2 class="sec-title">Built for real businesses,<br>not big budgets</h2>
+      <p class="sec-desc">Each product solves one specific pain point — and solves it well.</p>
+    </div>
+    <div class="products-grid">
+      <!-- Meal Management -->
+      <div class="product-card fade-up">
+        <div class="product-tag tag-live">LIVE</div>
+        <h3>Meal Management System</h3>
+        <p>Complete canteen management for factories, hostels & institutions. Biometric punch tracking, inventory management, and automated reports — deployed on cloud.</p>
+        <div class="features-grid">
+          <div class="feature-item">ZKTeco Biometric Integration</div>
+          <div class="feature-item">Real-time Dashboard</div>
+          <div class="feature-item">Inventory Management</div>
+          <div class="feature-item">Automated Excel Reports</div>
+          <div class="feature-item">Multi-role Access</div>
+          <div class="feature-item">Tamil & English UI</div>
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Spring Boot</span>
+          <span class="tech-pill">React</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">Cloud Run</span>
+        </div>
+        <div class="client-note">🚀 Soon to be live at D2D International Textile Company, Tirupur</div>
+      </div>
+
+      <!-- Gym Management -->
+      <div class="product-card fade-up">
+        <div class="product-tag tag-soon">COMING SOON</div>
+        <h3>Gym Management System</h3>
+        <p>Simple membership and fee tracking for gym owners. Know exactly who paid and who didn't — automated WhatsApp reminders handle follow-ups for you.</p>
+        <div class="features-grid">
+          <div class="feature-item">Member Fee Tracking</div>
+          <div class="feature-item">WhatsApp Reminders</div>
+          <div class="feature-item">PT Progress Tracking</div>
+          <div class="feature-item">Revenue Dashboard</div>
+          <div class="feature-item">QR Code Check-in</div>
+          <div class="feature-item">Mobile Friendly</div>
+        </div>
+        <div class="tech-pills">
+          <span class="tech-pill">Spring Boot</span>
+          <span class="tech-pill">React</span>
+          <span class="tech-pill">PostgreSQL</span>
+          <span class="tech-pill">Razorpay</span>
+        </div>
+        <div class="client-note">🚀 Launching soon — contact us for early access</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="whyus">
+  <div class="wrap">
+    <div class="fade-up">
+      <div class="sec-label">Why ThinkAuto Labs</div>
+      <h2 class="sec-title">Built by locals,<br>for local businesses</h2>
+      <p class="sec-desc">We understand Tamil Nadu businesses because we are one.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">💰</div>
+        <h3>Affordable</h3>
+        <p>Plans starting at ₹999/month. No lakhs of upfront investment needed.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🌐</div>
+        <h3>Tamil Support</h3>
+        <p>UI available in Tamil & English. Your staff can use it comfortably.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">⚡</div>
+        <h3>Fast Delivery</h3>
+        <p>We delivered a full canteen system in 6 weeks. We move fast.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">☁️</div>
+        <h3>Cloud Ready</h3>
+        <p>Production-grade deployment. Access from anywhere, any device.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">🛠️</div>
+        <h3>Custom Built</h3>
+        <p>Not a generic template. Built exactly for your business needs.</p>
+      </div>
+      <div class="why-card fade-up">
+        <div class="why-icon">📞</div>
+        <h3>Local Support</h3>
+        <p>Palani-based team. Call or WhatsApp us directly — no ticket queues.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-inner fade-up">
+      <div class="sec-label">Get In Touch</div>
+      <h2 class="sec-title">Let's talk about<br>your business</h2>
+      <p class="sec-desc">Tell us your problem — we'll tell you if we can solve it. Free consultation, no pressure.</p>
+      <div class="contact-cards">
+        <a href="mailto:thinkautolabs@gmail.com" class="contact-card">
+          <div class="contact-card-icon">📧</div>
+          <div class="contact-card-label">Email Us</div>
+          <div class="contact-card-value">thinkautolabs@gmail.com</div>
+        </a>
+        <a href="https://wa.me/916380008943?text=Hi ThinkAuto Labs, I want to know more about your products" class="contact-card" target="_blank">
+          <div class="contact-card-icon">💬</div>
+          <div class="contact-card-label">WhatsApp</div>
+          <div class="contact-card-value">+91 63800 08943</div>
+        </a>
+      </div>
+      <p class="contact-tagline">"We replace your notebook with a dashboard."</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Think<span>Auto</span>Labs</div>
+    <div class="footer-copy">© 2026 ThinkAuto Labs · Palani, Tamil Nadu</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
